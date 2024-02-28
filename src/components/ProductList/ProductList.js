@@ -22,19 +22,20 @@ function ProductList() {
     };
 
     return (
-      <div className="product-list-container"> {/* Apply container class */}
-          <h2>Product List</h2>
-          <ul>
-              {products.map((product) => (
-                  <li key={product.idDrink} className="product-item"> {/* Apply item class */}
-                      <img src={product.strDrinkThumb} alt={product.strDrink} />
-                      <div className="product-details"> {/* Apply details class */}
-                          <h3>{product.strDrink}</h3>
-                          <p className='product-desc'>{product.strInstructions}</p>
-                      </div>
-                  </li>
+        <div className="product-list-container">
+            <div className='product-list-rows'>
+                {products.map((product) => (
+                <div key={product.idDrink} className="product-item">
+                    <img className='product-img' src={product.strDrinkThumb} alt={product.strDrink} />
+                    <button class="overlay-button">
+                        <p class="button-text">Add to Cart!</p>
+                    </button>
+                    <div className="product-details">
+                        <h3 className='product-title'>{product.strDrink}</h3>
+                    </div>
+                </div>
               ))}
-          </ul>
+          </div>
       </div>
   );
 }
