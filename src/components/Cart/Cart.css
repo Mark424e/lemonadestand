@@ -1,0 +1,26 @@
+/* Cart.css */
+
+.cart {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cart-item button {
+  background-color: #ff6666;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.total {
+  font-weight: bold;
+  margin-top: 10px;
+}
