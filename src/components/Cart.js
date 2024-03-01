@@ -13,9 +13,9 @@ export default function Cart ({showModal, toggle}) {
 
   return (
     showModal && (
-      <div className="flex-col flex items-center fixed bottom-0 left-0 w-full h-3/4 bg-gradient-to-br from-indigo-900/50 via-purple-900/50 to-pink-900/50 backdrop-blur p-10 text-black font-normal text-sm">
+      <div className="flex-col flex items-center fixed bottom-0 left-0 w-full h-fit z-[9999] bg-gradient-to-tr from-primary/80 to-cyan-200/80 backdrop-blur p-10 text-black font-normal text-sm">
         <h1 className="text-white text-2xl font-bold mb-10 cursor-default">Cart</h1>
-        <div className="absolute right-16 top-10">
+        <div className="absolute right-0 me-[52px] top-10">
           <button
             className="px-4 py-2 bg-white text-black text-xs font-bold uppercase rounded transform duration-300 ease-in-out hover:scale-110"
             onClick={toggle}
@@ -23,7 +23,7 @@ export default function Cart ({showModal, toggle}) {
             Close
           </button>
         </div>
-        <div className="flex flex-col w-[100%] px-10 gap-4 text-white">
+        <div className="flex flex-col w-[100%] gap-4 text-white">
           {cartItems.map((item) => (
             <div className="transition rounded duration-300 ease-in-out hover:bg-white/30 hover:text-white transform flex justify-between items-center" key={item.id}>
               <div className="flex gap-4 items-center">

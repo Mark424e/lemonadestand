@@ -18,6 +18,7 @@ export const CartProvider = ({ children }) => {
         const newItem = { ...item, quantity: 1, id: item.id };
         setCartItems([...cartItems, newItem]);
     }
+
   };
 
   const removeFromCart = (item) => {
@@ -51,11 +52,10 @@ export const CartProvider = ({ children }) => {
         return roundedTotal;
   };
 
-    // Function to calculate the total number of items in the cart
-    const getTotalItems = () => {
-      const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
-      return totalItems;
-    };
+  const getTotalItems = () => {
+    const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+    return totalItems;
+  };
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));

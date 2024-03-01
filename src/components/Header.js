@@ -1,15 +1,62 @@
+import React, { useContext, useState, useEffect } from 'react';
 import '../output.css';
 
-function Header() {
+import { CartContext } from '../context/cart';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLinkedin, faSquareGithub } from '@fortawesome/free-brands-svg-icons'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
+function Header({ toggleModal }) {
+  const {  getTotalItems } = useContext(CartContext)
+  
+  const [bgColor, setBgColor] = useState('bg-transparent');
+  const [blur, setBlur] = useState('');
+  const [shadow, setShadow] = useState('');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+
+      // Change background color after scrolling below a certain amount
+      if (scrollPosition > 750) {
+        setBgColor('bg-gradient-to-tr from-primary/30 to-cyan-200/30');
+        setBlur('backdrop-blur');
+        setShadow('shadow-lg');
+      } else {
+        setBgColor('bg-transparent');
+        setBlur('');
+        setShadow('');
+      }
+    };
+
+    // Attach the scroll event listener when the component mounts
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // Empty dependency array ensures that this effect runs only once on component mount
+
+  
   return (
-    <header className='fixed w-[100%] top-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white mb-10 shadow-lg z-[1000]'>
+    <header id='header' className={`fixed top-0 mx-auto right-0 left-0 w-[95vw] rounded-full text-white m-5 ${bgColor} ${blur} ${shadow} transform transition-colors duration-300 ease-in-out z-[1000]`}>
       <div className='container mx-auto py-8'>
         <div className="flex justify-between items-center">
-          <a className='uppercase font-bold' href='index.js'>Lemonade Stand</a>
-          <ul className='flex items-center gap-5'>
-            <li className=''><a href='./index.js'>About</a></li>
-            <li className='nav-item'><a href='index.js'>Contact</a></li>
+          <a id='logo' href='index.js'>
+            Lemonista
+          </a>
+          <ul className='flex items-center gap-5 font-bold'>
+            <li className='transform duration-300 ease-in-out hover:scale-110'><a className='outline outline-1 outline-white  py-3 px-4 rounded-full' href='https://www.linkedin.com/in/markphillip1800/' target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faLinkedin} /></a></li>
+            <li className='transform duration-300 ease-in-out hover:scale-110'><a className='outline outline-1 outline-white  py-3 px-4 rounded-full' href='https://github.com/Mark424e/lemonadestand' target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faSquareGithub} /></a></li>
+            <li className='transform duration-300 ease-in-out hover:scale-110'><a className='bg-gray-200/10 transform duration-300 ease-in-out hover:bg-white hover:text-primary  py-3 px-4 rounded-full' href='./index.js'>About</a></li>
+            <li className='transform duration-300 ease-in-out hover:scale-110'><a className='bg-gray-200/10 transform duration-300 ease-in-out hover:bg-white hover:text-primary py-3 px-4 rounded-full' href='index.js'>Contact</a></li>
+            <li className='transform duration-300 ease-in-out hover:scale-110'>
+              <button onClick={toggleModal}>
+                <FontAwesomeIcon icon={faShoppingCart} /> ({getTotalItems()})
+              </button>
+            </li>
           </ul>
         </div>
       </div>
