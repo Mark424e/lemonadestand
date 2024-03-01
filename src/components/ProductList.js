@@ -5,6 +5,8 @@ import '../output.css';
 import { CartContext } from '../context/cart';
 import Cart from './Cart';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 function ProductList() {
     // Function to fetch data from the API
@@ -42,9 +44,10 @@ function ProductList() {
     return (
         <div className='container mx-auto'>
             
-            {!showModal && <button className='px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700'
+            {!showModal && <button className='absolute z-[1000] right-12 bottom-56 px-4 py-2 h-24 w-24 bg-purple-500 shadow-lg  text-white text-xl font-bold uppercase rounded-full transform duration-300 ease-in-out hover:bg-purple-600 hover:scale-110'
             onClick={toggle}
-            >Cart ({cartItems.length})</button>}
+            ><FontAwesomeIcon icon={faShoppingCart} /> ({cartItems.length})</button>}
+
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center mt-10'>
                 {products.map((product) => (
                 <div className='bg-white rounded relative transition duration-300 ease-in-out hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:text-white transform hover:scale-105 drop-shadow-lg' key={product.idDrink}>
