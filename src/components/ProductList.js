@@ -31,6 +31,10 @@ function ProductList() {
     const [products, setProducts] = useState([])
     const { cartItems, addToCart } = useContext(CartContext)
     
+    const handleAddToCart = (product) => {
+        addToCart({ ...product, id: product.idDrink }); // Include the ID with the product
+    };
+
     const toggle = () => {
         setShowModal(!showModal)
     }
@@ -46,7 +50,7 @@ function ProductList() {
                 <div className='bg-white rounded relative transition duration-300 ease-in-out hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:text-white transform hover:scale-105 drop-shadow-lg' key={product.idDrink}>
                     <div className='relative group'>
                         <img className='w-full h-[500px] object-cover rounded' src={product.strDrinkThumb} alt={product.strDrink} />
-                        <button className='absolute inset-0 w-[100%] bg-black bg-opacity-0 text-opacity-0 rounded text-white group-hover:bg-opacity-50 group-hover:text-opacity-100 flex justify-center items-center' onClick={() => addToCart(product)}>
+                        <button className='absolute inset-0 w-[100%] bg-black bg-opacity-0 text-opacity-0 rounded text-white group-hover:bg-opacity-50 group-hover:text-opacity-100 flex justify-center items-center' onClick={() => handleAddToCart(product)}>
                             <div>
                                 <p className='px-3'>{product.strInstructions}</p>
                                 <p className="transition duration-300 transform group-hover:-translate-y-1 font-bold animate-bounce absolute left-0 right-0 bottom-4">Add to Cart</p>

@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from 'react'
-import { v4 as uuidv4 } from 'uuid';
 
 export const CartContext = createContext()
 
@@ -16,8 +15,7 @@ export const CartProvider = ({ children }) => {
         setCartItems(updatedCartItems);
     } else {
         // If the item is not in the cart, add it with quantity 1
-        // Generate a unique ID for the new item
-        const newItem = { ...item, quantity: 1, id: uuidv4() }; // Add a unique ID to the item
+        const newItem = { ...item, quantity: 1, id: item.id };
         setCartItems([...cartItems, newItem]);
     }
   };
