@@ -2,21 +2,20 @@ import React from 'react';
 import '../output.css'; // Import CSS file
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebookSquare, faLinkedin, faSquareGithub } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin, faSquareGithub } from '@fortawesome/free-brands-svg-icons'
 
 
 function Footer() {
   return (
-      <footer className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white mt-10'>
+      <footer className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white mt-10 h-[100vh]'>
         <div className='container mx-auto py-8'>
           <div className='flex justify-between items-center'>
             <p>
               Stay connected with me on social networks!
             </p>
             <ul className='flex gap-4 text-[2rem]'>
-              <li className='social-item'><a href='index.js'><FontAwesomeIcon icon={faSquareGithub} /></a></li>
-              <li className='social-item'><a href='index.js'><FontAwesomeIcon icon={faLinkedin} /></a></li>
-              <li className='social-item'><a href='index.js'><FontAwesomeIcon icon={faFacebookSquare} /></a></li>
+              <li className='social-item'><a href='https://github.com/Mark424e' target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faSquareGithub} /></a></li>
+              <li className='social-item'><a href='https://www.linkedin.com/in/markphillip1800/' target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faLinkedin} /></a></li>
             </ul>
           </div>
         </div>

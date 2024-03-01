@@ -3,7 +3,7 @@ import '../output.css';
 function Header() {
 
   return (
-    <header className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white mb-10 shadow-lg'>
+    <header className='fixed w-[100%] top-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white mb-10 shadow-lg z-[1000]'>
       <div className='container mx-auto py-8'>
         <div className="flex justify-between items-center">
           <a className='uppercase font-bold' href='index.js'>Lemonade Stand</a>
@@ -14,7 +14,6 @@ function Header() {
         </div>
       </div>
     </header>
-    
   );
 }
 

@@ -31,7 +31,7 @@ function ProductList() {
     
     const [showModal, setShowModal] = useState(false)
     const [products, setProducts] = useState([])
-    const { cartItems, addToCart } = useContext(CartContext)
+    const { addToCart, getTotalItems } = useContext(CartContext)
     
     const handleAddToCart = (product) => {
         addToCart({ ...product, id: product.idDrink }); // Include the ID with the product
@@ -42,13 +42,13 @@ function ProductList() {
     }
     
     return (
-        <div className='container mx-auto'>
-            
-            {!showModal && <button className='absolute z-[1000] right-12 bottom-56 px-4 py-2 h-24 w-24 bg-purple-500 shadow-lg  text-white text-xl font-bold uppercase rounded-full transform duration-300 ease-in-out hover:bg-purple-600 hover:scale-110'
-            onClick={toggle}
-            ><FontAwesomeIcon icon={faShoppingCart} /> ({cartItems.length})</button>}
+        <div className='container mx-auto mt-36'>
 
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center mt-10'>
+            {!showModal && <button className='fixed z-[1000] right-12 bottom-56 px-4 py-2 h-24 w-24 bg-purple-500 shadow-lg  text-white text-xl font-bold uppercase rounded-full transform duration-300 ease-in-out hover:bg-purple-600 hover:scale-110'
+            onClick={toggle}
+            ><FontAwesomeIcon icon={faShoppingCart} /> ({getTotalItems()})</button>}
+
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center'>
                 {products.map((product) => (
                 <div className='bg-white rounded relative transition duration-300 ease-in-out hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:text-white transform hover:scale-105 drop-shadow-lg' key={product.idDrink}>
                     <div className='relative group'>
@@ -68,6 +68,7 @@ function ProductList() {
                 </div>
               ))}
           </div>
+
           <Cart showModal={showModal} toggle={toggle} />
         </div>
         
