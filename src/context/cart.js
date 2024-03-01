@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from 'react'
+import { v4 as uuidv4 } from 'uuid';
 
 export const CartContext = createContext()
 
@@ -6,18 +7,18 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [])
 
   const addToCart = (item) => {
-    const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
+    const existingItemIndex = cartItems.findIndex((cartItem) => cartItem.id === item.id);
 
-    if (isItemInCart) {
-      setCartItems(
-        cartItems.map((cartItem) =>
-          cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
-            : cartItem
-        )
-      );
+    if (existingItemIndex !== -1) {
+        // If the item already exists in the cart, update its quantity
+        const updatedCartItems = [...cartItems];
+        updatedCartItems[existingItemIndex].quantity += 1;
+        setCartItems(updatedCartItems);
     } else {
-      setCartItems([...cartItems, { ...item, quantity: 1 }]);
+        // If the item is not in the cart, add it with quantity 1
+        // Generate a unique ID for the new item
+        const newItem = { ...item, quantity: 1, id: uuidv4() }; // Add a unique ID to the item
+        setCartItems([...cartItems, newItem]);
     }
   };
 

@@ -5,6 +5,7 @@ import '../output.css';
 import { CartContext } from '../context/cart';
 import Cart from './Cart';
 
+
 function ProductList() {
     // Function to fetch data from the API
     const fetchData = async () => {
@@ -13,16 +14,12 @@ function ProductList() {
 
             const productsWithPrices = response.data.drinks.map(product => ({
                 ...product,
-                price: calculatePrice(product)
+                price: 4.99
             }));
             setProducts(productsWithPrices);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
-    };
-
-    const calculatePrice = (product) => {
-        return (Math.random() * (5 - 1) + 1).toFixed(2); // Random price between $1 and $5
     };
 
     // Effect hook to fetch data from the API
@@ -37,21 +34,23 @@ function ProductList() {
     const toggle = () => {
         setShowModal(!showModal)
     }
-
+    
     return (
         <div className='container mx-auto'>
             
             {!showModal && <button className='px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700'
             onClick={toggle}
             >Cart ({cartItems.length})</button>}
-
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center mt-10'>
                 {products.map((product) => (
-                <div className='bg-white p-3 rounded relative transition duration-300 ease-in-out hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:text-white transform hover:scale-105 drop-shadow-lg' key={product.idDrink}>
+                <div className='bg-white rounded relative transition duration-300 ease-in-out hover:bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:text-white transform hover:scale-105 drop-shadow-lg' key={product.idDrink}>
                     <div className='relative group'>
                         <img className='w-full h-[500px] object-cover rounded' src={product.strDrinkThumb} alt={product.strDrink} />
                         <button className='absolute inset-0 w-[100%] bg-black bg-opacity-0 text-opacity-0 rounded text-white group-hover:bg-opacity-50 group-hover:text-opacity-100 flex justify-center items-center' onClick={() => addToCart(product)}>
-                        <p className="transition duration-300 transform group-hover:-translate-y-1">Add to Cart</p>
+                            <div>
+                                <p className='px-3'>{product.strInstructions}</p>
+                                <p className="transition duration-300 transform group-hover:-translate-y-1 font-bold animate-bounce absolute left-0 right-0 bottom-4">Add to Cart</p>
+                            </div>
                         </button>
                     </div>
                     
