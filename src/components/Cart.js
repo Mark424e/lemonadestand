@@ -13,7 +13,7 @@ export default function Cart ({showModal, toggle}) {
 
   return (
     showModal && (
-      <div className='fixed bottom-0 flex-col flex items-center right-0 w-full md:w-2/4 xl:w-1/3 h-2/3 md:h-full bg-gradient-to-tr from-primary/80 to-cyan-200/80 backdrop-blur px-10 z-[9999]'>
+      <div className='fixed bottom-0 flex-col flex items-center right-0 w-full md:w-2/3 xl:w-1/3 h-2/3 md:h-full bg-gradient-to-tr from-primary/80 to-cyan-200/80 backdrop-blur px-10 z-[9999]'>
         <div className='w-full relative my-10'>
           <h1 className="text-white text-center text-2xl font-bold cursor-default">Cart</h1>
           <div>
@@ -33,7 +33,7 @@ export default function Cart ({showModal, toggle}) {
                     <p>Price: ${item.price}</p>
                   </div>
                 </div>
-                <div className="flex gap-4 items-center">
+                <div className="flex gap-2 items-center">
                 <button
                     className="mx-3 px-4 py-2 bg-white text-black text-xs font-bold rounded hover:bg-gray-200 focus:outline-none"
                     onClick={() => {
