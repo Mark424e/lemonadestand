@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import '../output.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { CartContext } from '../context/cart';
 import Cart from './Cart';
@@ -29,11 +31,15 @@ function ProductList({ showModal, toggleModal }) {
     
     const handleAddToCart = (product) => {
         addToCart({ ...product, id: product.idDrink }); // Include the ID with the product
+        toast.success('Item added to cart', {
+            position: 'top-center',
+        }); // Trigger a success toast
+        
     };
-    
+
     return (
         <div className='container mx-auto'>
-
+            
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center'>
                 {products.map((product) => (
                 <div className='bg-white rounded relative transition duration-300 ease-in-out hover:bg-gradient-to-tr from-primary to-cyan-200 hover:text-white transform hover:scale-105 drop-shadow-lg' key={product.idDrink}>
