@@ -44,7 +44,7 @@ function Header({ toggleModal }) {
     <header id='header' className={`fixed top-0 mx-auto right-0 left-0 w-[95vw] rounded-full text-white m-5 ${bgColor} ${blur} ${shadow} transform transition-colors duration-300 ease-in-out z-[1000]`}>
       <div className='container mx-auto py-8'>
         <div className="flex justify-between items-center">
-          <a id='logo' href='index.js'>
+          <a id='logo' className=' text-2xl' href='index.js'>
             Lemonista
           </a>
           <ul className='flex items-center gap-5 font-bold'>

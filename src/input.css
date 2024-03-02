@@ -14,9 +14,16 @@ body {
   font-optical-sizing: auto;
   font-weight: normal;
   font-style: normal;
-  font-size: 1.5rem;
   display: inline-block;
-  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+#heroLogo {
+  font-family: "Forte", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
   transition: transform 0.3s ease;
 }
 
@@ -33,7 +40,20 @@ body {
   bottom: -5px;
   border: 2px solid #fff;
   border-radius: 9999px;
-  animation: outlineAnimation 0.5s infinite alternate;
+  animation: outlineAnimation 0.5s
+  infinite alternate;
+}
+
+.shadow-text {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.gradient-shadow-text {
+  background: -webkit-linear-gradient(#effd2c, #d49d04);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
 }
 
 @keyframes outlineAnimation {
