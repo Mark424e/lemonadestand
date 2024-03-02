@@ -42,7 +42,7 @@ function Header({ toggleModal }) {
 
   
   return (
-    <header id='header' className={`fixed top-0 mx-auto right-0 left-0 w-[95vw] rounded-full text-white m-5 ${bgColor} ${blur} ${shadow} transform transition-colors duration-300 ease-in-out z-[1000]`}>
+    <header id='header' className={`fixed top-0 mx-auto right-0 left-0 w-[95vw] rounded-full text-white m-5 font-bold ${bgColor} ${blur} ${shadow} transform transition-colors duration-300 ease-in-out z-[1000]`}>
       <div className='container mx-auto py-8 px-10 lg:px-0'>
         <div className="flex justify-between items-center">
           <a id='logo' className=' text-2xl' href='index.js'>
@@ -52,7 +52,7 @@ function Header({ toggleModal }) {
           {/* Burger menu component */}
           <BurgerMenu toggleModal={toggleModal} getTotalItems={getTotalItems} />
 
-          <ul className='lg:flex items-center gap-5 font-bold hidden'>
+          <ul className='lg:flex items-center gap-5 hidden'>
             <li className='transform duration-300 ease-in-out hover:scale-110'><a className='outline outline-1 outline-white  py-3 px-4 rounded-full' href='https://www.linkedin.com/in/markphillip1800/' target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faLinkedin} /></a></li>
             <li className='transform duration-300 ease-in-out hover:scale-110'><a className='outline outline-1 outline-white  py-3 px-4 rounded-full' href='https://github.com/Mark424e/lemonadestand' target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faSquareGithub} /></a></li>
             <li className='transform duration-300 ease-in-out hover:scale-110'><a className='bg-gray-200/10 transform duration-300 ease-in-out hover:bg-white hover:text-primary  py-3 px-4 rounded-full' href='./index.js'>About</a></li>
