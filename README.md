@@ -6,3 +6,6 @@
 - A Check out (Coming soon)
 - API call to TheCocktailDB APi endpoints
 - Calculations of total price
+
+## Visit at
+- https://lemonadestand-mark.vercel.app/
