@@ -12,7 +12,7 @@ function ProductList({ showModal, toggleModal }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=lemonade');
+                const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=lemon');
 
                 const productsWithPrices = response.data.drinks.map(product => ({
                     ...product,
@@ -32,7 +32,7 @@ function ProductList({ showModal, toggleModal }) {
     const handleAddToCart = (product) => {
         addToCart({ ...product, id: product.idDrink }); // Include the ID with the product
         toast.success('Item added to cart', {
-            position: 'top-center',
+            position: 'bottom-right',
         }); // Trigger a success toast
         
     };

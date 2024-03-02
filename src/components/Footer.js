@@ -7,7 +7,7 @@ import { faLinkedin, faSquareGithub } from '@fortawesome/free-brands-svg-icons'
 
 function Footer() {
   return (
-      <footer className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white mt-10 h-[100vh]'>
+      <footer className='relative bg-gradient-to-tr from-primary via-primary to-cyan-200 text-white mt-10 h-[82vh]'>
         <div className='container mx-auto py-8'>
           <div className='flex justify-between items-center'>
             <p>
@@ -19,7 +19,7 @@ function Footer() {
             </ul>
           </div>
         </div>
-        <div className='bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 py-4'>
+        <div className='absolute bg-cyan-800/40 py-4 w-full bottom-0'>
           <div className="text-center">
             <p>&copy; 2024 Copyright: <a className='' href='https://www.linkedin.com/in/markphillip1800/' target='_blank' rel='noreferrer'>Mark P. Thomassen</a></p>
           </div>

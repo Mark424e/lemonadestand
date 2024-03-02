@@ -13,7 +13,6 @@ module.exports = {
         // Using legacy `rgba`
         primary: 'rgba(var(--color-primary), <alpha-value>)',
       },
-
     },
   },
   plugins: [],

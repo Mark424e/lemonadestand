@@ -19,8 +19,8 @@ function Header({ toggleModal }) {
       const scrollPosition = window.scrollY;
 
       // Change background color after scrolling below a certain amount
-      if (scrollPosition > 750) {
-        setBgColor('bg-gradient-to-tr from-primary/30 to-cyan-200/30');
+      if (scrollPosition > 500) {
+        setBgColor('bg-gradient-to-tr from-primary/70 to-cyan-200/70');
         setBlur('backdrop-blur');
         setShadow('shadow-lg');
       } else {
