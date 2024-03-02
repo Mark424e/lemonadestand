@@ -22,7 +22,7 @@ export default function Cart ({showModal, toggle}) {
             </button>
           </div>
         </div>
-        <div className="overflow-y-auto w-full text-black font-normal text-sm">
+        <div className="overflow-y-auto w-full h-full text-black font-normal text-sm">
           <div className="flex flex-col w-[100%] gap-4 text-white">
             {cartItems.map((item) => (
               <div className="transition rounded duration-300 ease-in-out hover:bg-white/30 hover:text-white transform flex justify-between items-center" key={item.id}>
