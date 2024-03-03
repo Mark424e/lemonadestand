@@ -951,6 +951,14 @@ video {
   background-color: rgba(var(--color-primary), 0.7);
 }
 
+.bg-cyan-800\/70 {
+  background-color: rgb(21 94 117 / 0.7);
+}
+
+.bg-cyan-800\/50 {
+  background-color: rgb(21 94 117 / 0.5);
+}
+
 .bg-opacity-0 {
   --tw-bg-opacity: 0;
 }

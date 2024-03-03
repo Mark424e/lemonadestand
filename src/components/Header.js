@@ -22,7 +22,7 @@ function Header({ toggleModal }) {
       const scrollPosition = window.scrollY;
 
       if (scrollPosition > 500) {
-        setBgColor('bg-primary/70');
+        setBgColor('bg-cyan-800/50');
         setBlur('backdrop-blur');
         setShadow('shadow-lg');
       } else {
