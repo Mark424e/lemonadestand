@@ -38,13 +38,40 @@ function ProductList({ showModal, toggleModal }) {
         addToCart({ ...product, id: product.idDrink });
         toast.success('Item added to cart', {
             position: 'bottom-right',
-        });
-        
+        });  
+    };
+    
+    // Function to sort products by price
+    const sortByLowestPrice = () => {
+        const sortedProducts = [...products].sort((a, b) => a.price - b.price);
+        setProducts(sortedProducts);
+    };
+    
+    // Function to sort products from highest price to lowest price
+    const sortByHighestPrice = () => {
+    const sortedProducts = [...products].sort((a, b) => b.price - a.price);
+    setProducts(sortedProducts);
+    };
+
+    // Function to sort products by name
+    const sortByName = () => {
+        const sortedProducts = [...products].sort((a, b) => a.strDrink.localeCompare(b.strDrink));
+        setProducts(sortedProducts);
     };
 
     return (
         <div id="productList" className='container mx-auto mt-[10rem] lg:mt-36'>
             
+            <div className="flex justify-start my-4">
+                <label>
+                    <select>
+                    <option className="mx-2" onClick={sortByName}>Sort by Name (A - Z)</option>
+                    <option className="mx-2" onClick={sortByLowestPrice}>Sort by Price (Low - High)</option>
+                    <option className="mx-2" onClick={sortByHighestPrice}>Sort by Price (High - Low)</option>
+                    </select>
+                </label>
+            </div>
+
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center'>
                 {products.map((product) => (
                 <div className='bg-white rounded relative transition duration-300 ease-in-out hover:bg-primary hover:text-white transform hover:scale-105 drop-shadow-lg' key={product.idDrink}>
