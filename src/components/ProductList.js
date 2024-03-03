@@ -42,13 +42,12 @@ function ProductList({ showModal, toggleModal }) {
             
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center'>
                 {products.map((product) => (
-                <div className='bg-white rounded relative transition duration-300 ease-in-out hover:bg-gradient-to-tr from-primary to-cyan-200 hover:text-white transform hover:scale-105 drop-shadow-lg' key={product.idDrink}>
+                <div className='bg-white rounded relative transition duration-300 ease-in-out hover:bg-primary hover:text-white transform hover:scale-105 drop-shadow-lg' key={product.idDrink}>
                     <div className='relative group'>
                         <img className='w-full h-[500px] object-cover rounded' src={product.strDrinkThumb} alt={product.strDrink} />
                         <button className='absolute inset-0 w-[100%] bg-black bg-opacity-0 text-opacity-0 rounded text-white group-hover:bg-opacity-50 group-hover:text-opacity-100 flex justify-center items-center' onClick={() => handleAddToCart(product)}>
                             <div>
-                                <p className='px-3'>{product.strInstructions}</p>
-                                <p className="transition duration-300 transform group-hover:-translate-y-1 font-bold animate-bounce absolute left-0 right-0 bottom-4">Add to Cart</p>
+                                <p className="transition duration-300 transform group-hover:-translate-y-1 font-bold animate-bounce absolute left-0 right-0">Add to Cart</p>
                             </div>
                         </button>
                     </div>
