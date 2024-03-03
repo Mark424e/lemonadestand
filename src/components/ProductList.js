@@ -8,7 +8,6 @@ import { CartContext } from '../context/cart';
 import Cart from './Cart';
 
 function ProductList({ showModal, toggleModal }) {
-    // Function to fetch data from the API
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -30,10 +29,10 @@ function ProductList({ showModal, toggleModal }) {
     const [products, setProducts] = useState([])
     
     const handleAddToCart = (product) => {
-        addToCart({ ...product, id: product.idDrink }); // Include the ID with the product
+        addToCart({ ...product, id: product.idDrink });
         toast.success('Item added to cart', {
             position: 'bottom-right',
-        }); // Trigger a success toast
+        });
         
     };
 

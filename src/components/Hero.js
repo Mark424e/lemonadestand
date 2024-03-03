@@ -10,7 +10,6 @@ function Hero() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // This effect runs only once after the component is mounted
     setIsVisible(true);
   }, []);
 

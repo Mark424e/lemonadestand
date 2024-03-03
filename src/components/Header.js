@@ -21,7 +21,6 @@ function Header({ toggleModal }) {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
 
-      // Change background color after scrolling below a certain amount
       if (scrollPosition > 500) {
         setBgColor('bg-gradient-to-tr from-primary/70 to-cyan-200/70');
         setBlur('backdrop-blur');
@@ -33,10 +32,8 @@ function Header({ toggleModal }) {
       }
     };
 
-    // Attach the scroll event listener when the component mounts
     window.addEventListener('scroll', handleScroll);
 
-    // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
