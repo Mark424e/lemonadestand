@@ -38,7 +38,7 @@ function ProductList({ showModal, toggleModal }) {
     };
 
     return (
-        <div className='container mx-auto mt-[38rem] lg:mt-48'>
+        <div id="productList" className='container mx-auto mt-[10rem] lg:mt-36'>
             
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center'>
                 {products.map((product) => (

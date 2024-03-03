@@ -18,18 +18,6 @@ body {
   transition: transform 0.3s ease;
 }
 
-.shadow-text {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.gradient-shadow-text {
-  background: -webkit-linear-gradient(#effd2c, #d49d04);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
-}
-
 .fade-container {
   opacity: 0;
   transform: translateY(20px);
