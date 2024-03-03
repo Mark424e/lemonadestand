@@ -16,7 +16,7 @@ function ProductList({ showModal, toggleModal }) {
 
                 const productsWithPrices = response.data.drinks.map(product => ({
                     ...product,
-                    price: 4.99
+                    price: 14.99
                 }));
                 setProducts(productsWithPrices);
             } catch (error) {
@@ -38,7 +38,7 @@ function ProductList({ showModal, toggleModal }) {
     };
 
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto mt-[38rem] lg:mt-48'>
             
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center'>
                 {products.map((product) => (

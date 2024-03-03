@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faSquareGithub } from '@fortawesome/free-brands-svg-icons'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
+import logo from '../images/logo-grayscale.svg'
+
 function Header({ toggleModal }) {
   const {  getTotalItems } = useContext(CartContext)
   
@@ -45,8 +47,8 @@ function Header({ toggleModal }) {
     <header id='header' className={`fixed top-0 mx-auto right-0 left-0 w-[95vw] rounded-full text-white m-5 font-bold ${bgColor} ${blur} ${shadow} transform transition-colors duration-300 ease-in-out z-[1000]`}>
       <div className='container mx-auto py-8 px-10 lg:px-0'>
         <div className="flex justify-between items-center">
-          <a id='logo' className=' text-2xl' href='index.js'>
-            Lemonista
+          <a className='transform duration-300 ease-in-out hover:scale-110' href='index.js'>
+            <img className='w-28 h-auto' src={logo} alt='logo'/>    
           </a>
 
           {/* Burger menu component */}

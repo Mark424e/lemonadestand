@@ -9,15 +9,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-#logo {
-  font-family: "Forte", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: normal;
-  font-style: normal;
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
 #heroLogo {
   font-family: "Forte", sans-serif;
   font-optical-sizing: auto;
@@ -25,23 +16,6 @@ body {
   font-style: normal;
   display: inline-block;
   transition: transform 0.3s ease;
-}
-
-#logo:hover {
-  transform: scale(1.1);
-}
-
-#logo:hover::before {
-  content: '';
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  border: 2px solid #fff;
-  border-radius: 9999px;
-  animation: outlineAnimation 0.5s
-  infinite alternate;
 }
 
 .shadow-text {
@@ -55,6 +29,18 @@ body {
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
 }
+
+.fade-container {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 @keyframes outlineAnimation {
   0% {
