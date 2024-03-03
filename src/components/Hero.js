@@ -16,8 +16,8 @@ function Hero() {
       <div className='relative container mx-auto'>
         <div className={`absolute mx-auto left-0 right-0 lg:left-auto lg:right-auto text-white top-[30rem] z-[500] fade-container ${isVisible ? 'fade-visible' : ''}`}>
           <h1 className="text-3xl lg:text-[3rem] font-bold shadow-text text-center lg:text-start">Quench that thirst at</h1>
-          <img className='drop-shadow-lg w-[60rem] h-auto' src={logo} alt='logo'/>    
-          <div className='mt-16 text-lg text-gray-600 flex flex-col gap-4 text-justify'>
+          <img className='my-14 drop-shadow-lg w-[60rem] h-auto' src={logo} alt='logo'/>    
+          <div className='text-lg text-gray-600 flex flex-col gap-4 text-justify'>
             <p>
               Indulge in the essence of summer with our handcrafted lemonades, freshly squeezed and bursting with vibrant flavors. At our lemonade stand, we blend the finest ingredients to create the perfect balance of sweet and tangy refreshment.
             </p>
