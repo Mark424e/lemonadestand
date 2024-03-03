@@ -1,30 +1,41 @@
 import React from 'react';
-import '../output.css'; // Import CSS file
+import '../output.css';
+import logo from '../images/logo-grayscale.svg'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedin, faSquareGithub } from '@fortawesome/free-brands-svg-icons'
-
+import { faLinkedin, faSquareGithub, faSquareFacebook, faTwitterSquare, faSquareInstagram } from '@fortawesome/free-brands-svg-icons'
 
 function Footer() {
   return (
-      <footer className='relative bg-gradient-to-tr from-primary via-primary to-cyan-200 text-white mt-10 h-[82vh]'>
-        <div className='container mx-auto py-8'>
-          <div className='flex justify-between items-center'>
-            <p>
-              Stay connected with me on social networks!
-            </p>
-            <ul className='flex gap-4 text-[2rem]'>
+    <footer className='bg-cyan-800 text-white mt-10'>
+      <div className='container mx-auto py-8 flex justify-center items-center'>
+        <div className="flex gap-2 items-center w-full">
+          <div className="h-[1px] w-full bg-white mx-4"></div>
+            <ul className='flex gap-5 text-[2rem]'>
               <li className='social-item'><a href='https://github.com/Mark424e' target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faSquareGithub} /></a></li>
               <li className='social-item'><a href='https://www.linkedin.com/in/markphillip1800/' target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faLinkedin} /></a></li>
+              <li className='social-item'><button><FontAwesomeIcon icon={faSquareFacebook} /></button></li>
+              <li className='social-item'><button><FontAwesomeIcon icon={faTwitterSquare} /></button></li>
+              <li className='social-item'><button><FontAwesomeIcon icon={faSquareInstagram} /></button></li>
             </ul>
-          </div>
+          <div className="h-[1px] w-full bg-white mx-4"></div>
         </div>
-        <div className='absolute bg-cyan-800/40 py-4 w-full bottom-0'>
-          <div className="text-center">
-            <p>&copy; 2024 Copyright: <a className='' href='https://www.linkedin.com/in/markphillip1800/' target='_blank' rel='noreferrer'>Mark P. Thomassen</a></p>
-          </div>
-        </div>
-      </footer>
+      </div>
+      <div className='container mx-auto flex flex-col gap-2 justify-center items-center'>
+        <img className='w-28 h-auto' src={logo} alt='logo'/>
+        <p>&copy; 2024 Copyright: <a className='font-bold' href='https://www.linkedin.com/in/markphillip1800/' target='_blank' rel='noreferrer'>Mark P. Thomassen</a>
+        </p>
+      </div>
+      <div className=' mx-auto py-8 flex justify-center items-center'>
+      <ul className='flex gap-5 text-sm font-bold underline'>
+              <li><a href='index.js'>Legal Stuff</a></li>
+              <li><a href='index.js'>Privacy Policy</a></li>
+              <li><a href='index.js'>Security</a></li>
+              <li><a href='index.js'>Website Accessibility</a></li>
+              <li><a href='index.js'>Manage Cookies</a></li>
+            </ul>
+      </div>
+    </footer>
   );
 }
 
