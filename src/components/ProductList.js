@@ -15,7 +15,7 @@ function ProductList({ showModal, toggleModal }) {
 
                 const productsWithPrices = response.data.drinks.map(product => ({
                     ...product,
-                    price: 14.99
+                    price: generateRandomPrice()
                 }));
                 setProducts(productsWithPrices);
             } catch (error) {
@@ -25,6 +25,12 @@ function ProductList({ showModal, toggleModal }) {
         fetchData();
     }, []);
     
+    const generateRandomPrice = () => {
+        const randomDollar = Math.floor(Math.random() * (19 - 8 + 1)) + 8;
+        const randomCents = Math.random() < 0.5 ? 49 : 99;
+        return `${randomDollar}.${randomCents}`;
+    };
+
     const { addToCart } = useContext(CartContext)
     const [products, setProducts] = useState([])
     
