@@ -23,7 +23,7 @@ export const CheckoutPage = ({ showModal, toggleModal }) => {
 
     return (
       <>
-        <div className='container pt-28 h-[100vh] mx-auto text-gray-800 mb-10'>
+        <div className='container pt-28 min-h-[100vh] h-fit mx-auto text-gray-800 mb-10'>
           <div className='flex-col flex items-center w-full'>
 
           <div className='w-full relative my-10'>
