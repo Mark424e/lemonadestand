@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types'
 import { useContext } from 'react'
 import { CartContext } from '../context/cart'
-
-import '../output.css'
+import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -10,20 +9,6 @@ import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 export default function Cart ({showModal, toggle}) {
 
   const { cartItems, addToCart, removeFromCart, clearCart, getCartTotal } = useContext(CartContext)
-
-  const ProductionCost = 4.99;
-
-  const totalProfit = cartItems.reduce((total, item) => {
-    const itemProfit = item.price - ProductionCost;
-    return total + itemProfit * item.quantity;
-  }, 0);
-
-  const formattedTotalProfit = totalProfit.toFixed(2);
-
-  const lemonsUsed = cartItems.reduce((total, item) => {
-    const lemonsPerItem = 1.5;
-    return total + lemonsPerItem * item.quantity;
-  }, 0);
 
   return (
     showModal && (
@@ -51,7 +36,7 @@ export default function Cart ({showModal, toggle}) {
                   </div>
                 </div>
                 <div className="flex gap-2 items-center">
-                <button
+                  <button
                     className="mx-3 px-4 py-2 bg-white text-black text-xs font-bold rounded hover:bg-gray-200 focus:outline-none"
                     onClick={() => {
                       removeFromCart(item)
@@ -75,17 +60,14 @@ export default function Cart ({showModal, toggle}) {
           cartItems.length > 0 ? (
           <div className="flex flex-col items-center">
             
-            <h1 className="text-lg font-bold mb-3 cursor-default text-white">Total Profit: ${formattedTotalProfit}</h1>
-            <h1 className="text-lg font-bold mb-3 cursor-default text-white">Lemons Used: {lemonsUsed}</h1>
-
             <h1 className="text-lg font-bold mb-3 cursor-default text-white">Total: ${getCartTotal()}</h1>
             <div className='flex gap-5'>
               <button className="px-4 py-2 w-[115px] bg-white text-black text-xs font-bold uppercase rounded transform duration-300 ease-in-out hover:scale-110" onClick={() => { clearCart() }}>
                 Clear cart
               </button>
-              <button className="px-4 py-2 w-[115px] bg-white text-black text-xs font-bold uppercase rounded transform duration-300 ease-in-out hover:scale-110">
+              <Link to="/CheckoutPage" className="px-4 py-2 w-[115px] bg-white text-black text-xs font-bold uppercase rounded transform duration-300 ease-in-out hover:scale-110">
                 To Checkout
-              </button>
+              </Link>
             </div>   
           </div>
           ) : (

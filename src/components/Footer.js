@@ -7,7 +7,7 @@ import { faLinkedin, faSquareGithub, faSquareFacebook, faTwitterSquare, faSquare
 
 function Footer() {
   return (
-    <footer className='bg-cyan-800 text-white mt-10'>
+    <footer className='bg-cyan-800 text-white'>
       <div className='container mx-auto py-8 flex justify-center items-center'>
         <div className="flex gap-2 items-center w-full">
           <div className="h-[1px] w-full bg-white mx-4"></div>
