@@ -15,7 +15,7 @@ function ProductList({ showModal, toggleModal }) {
 
                 const productsWithPrices = response.data.drinks.map(product => ({
                     ...product,
-                    price: generateRandomPrice()
+                    price: generateRandomPrice(),
                 }));
                 setProducts(productsWithPrices);
             } catch (error) {
@@ -33,7 +33,7 @@ function ProductList({ showModal, toggleModal }) {
 
     const { addToCart } = useContext(CartContext)
     const [products, setProducts] = useState([])
-    
+
     const handleAddToCart = (product) => {
         addToCart({ ...product, id: product.idDrink });
         toast.success('Item added to cart', {
@@ -41,19 +41,16 @@ function ProductList({ showModal, toggleModal }) {
         });  
     };
     
-    // Function to sort products by price
     const sortByLowestPrice = () => {
         const sortedProducts = [...products].sort((a, b) => a.price - b.price);
         setProducts(sortedProducts);
     };
     
-    // Function to sort products from highest price to lowest price
     const sortByHighestPrice = () => {
     const sortedProducts = [...products].sort((a, b) => b.price - a.price);
     setProducts(sortedProducts);
     };
 
-    // Function to sort products by name
     const sortByName = () => {
         const sortedProducts = [...products].sort((a, b) => a.strDrink.localeCompare(b.strDrink));
         setProducts(sortedProducts);

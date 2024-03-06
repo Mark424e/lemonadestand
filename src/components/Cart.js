@@ -11,9 +11,24 @@ export default function Cart ({showModal, toggle}) {
 
   const { cartItems, addToCart, removeFromCart, clearCart, getCartTotal } = useContext(CartContext)
 
+  const ProductionCost = 4.99;
+
+  const totalProfit = cartItems.reduce((total, item) => {
+    const itemProfit = item.price - ProductionCost;
+    return total + itemProfit * item.quantity;
+  }, 0);
+
+  const formattedTotalProfit = totalProfit.toFixed(2);
+
+  const lemonsUsed = cartItems.reduce((total, item) => {
+    const lemonsPerItem = 1.5;
+    return total + lemonsPerItem * item.quantity;
+  }, 0);
+
   return (
     showModal && (
-      <div className='fixed bottom-0 flex-col flex items-center right-0 w-full md:w-2/3 xl:w-1/3 h-2/3 md:h-full bg-gradient-to-tr from-primary/80 to-cyan-200/80 backdrop-blur px-10 z-[9999]'>
+      <div className='fixed bottom-0 flex-col flex items-center right-0 w-full md:w-2/3 xl:w-1/3 h-full bg-gradient-to-tr from-primary/80 to-cyan-200/80 backdrop-blur px-10 z-[9999]'>
+
         <div className='w-full relative my-10'>
           <h1 className="text-white text-center text-2xl font-bold cursor-default">Cart</h1>
           <div>
@@ -22,10 +37,12 @@ export default function Cart ({showModal, toggle}) {
             </button>
           </div>
         </div>
+
         <div className="overflow-y-auto w-full h-full text-black font-normal text-sm">
           <div className="flex flex-col w-[100%] gap-4 text-white">
             {cartItems.map((item) => (
               <div className="transition rounded duration-300 ease-in-out hover:bg-white/30 hover:text-white transform flex justify-between items-center" key={item.id}>
+
                 <div className="flex gap-4 items-center">
                   <img src={item.strDrinkThumb} alt={item.strDrink} className="rounded-md h-24" />
                   <div className="flex flex-col cursor-default">
@@ -47,20 +64,29 @@ export default function Cart ({showModal, toggle}) {
                       addToCart(item)
                     }}
                   ><FontAwesomeIcon icon={faPlus} /></button>
-
                 </div>
               </div>
             ))}
           </div>
         </div>
+        
         <div className='w-full my-10 text-center'> 
         {
           cartItems.length > 0 ? (
           <div className="flex flex-col items-center">
+            
+            <h1 className="text-lg font-bold mb-3 cursor-default text-white">Total Profit: ${formattedTotalProfit}</h1>
+            <h1 className="text-lg font-bold mb-3 cursor-default text-white">Lemons Used: {lemonsUsed}</h1>
+
             <h1 className="text-lg font-bold mb-3 cursor-default text-white">Total: ${getCartTotal()}</h1>
-            <button className="px-4 py-2 bg-white text-black text-xs font-bold uppercase rounded transform duration-300 ease-in-out hover:scale-110" onClick={() => { clearCart() }}>
-              Clear cart
-            </button>
+            <div className='flex gap-5'>
+              <button className="px-4 py-2 w-[115px] bg-white text-black text-xs font-bold uppercase rounded transform duration-300 ease-in-out hover:scale-110" onClick={() => { clearCart() }}>
+                Clear cart
+              </button>
+              <button className="px-4 py-2 w-[115px] bg-white text-black text-xs font-bold uppercase rounded transform duration-300 ease-in-out hover:scale-110">
+                To Checkout
+              </button>
+            </div>   
           </div>
           ) : (
           <h1 className="text-lg font-bold text-white">Your cart is empty</h1>
